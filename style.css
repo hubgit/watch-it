@@ -105,13 +105,13 @@ article [itemprop=url]:hover {
 }
 
 article .url {
-  font-size: 80%;
+  font-size: 70%;
   color: green;
   margin-bottom: 1rem;
 }
 
 article [itemprop=description] {
-  font-size: 80%;
+  font-size: 70%;
   color: gray;
 }
 

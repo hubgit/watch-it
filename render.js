@@ -16,6 +16,7 @@ const template = item => `
       
       <div class="url">${item.data.formattedUrl}</div>
       
+      <!--
       ${item.tracks ? `
           <ol>
               ${item.tracks.map(data => `
@@ -26,24 +27,27 @@ const template = item => `
               `).join('')}
           </ol>
       ` : ''}
+      -->
       
       ${item.description ? `
           <p itemprop="description">${item.description}</p>
       ` : ''}
-  
-      ${item.image ? `
-          <a class="image-container" href="${item.formattedUrl}">
-              <img itemprop="image" src="${item.image}">
-          </a>
-      ` : ''}
-    </div>
-  
-    <div>
+      
       ${item.embed ? `
           <div itemscope itemtype="http://schema.org/AudioObject">
               <object itemprop="embedUrl" data="${item.embed.data}" width="${item.embed.width}" height="${item.embed.height}"></object>
           </div>
       ` : ''}
     </div>
+  
+    <!--
+    <div>
+       ${item.image ? `
+          <a class="image-container" href="${item.formattedUrl}">
+              <img itemprop="image" src="${item.image}">
+          </a>
+      ` : ''}
+    </div>
+    -->
   </article>
 `

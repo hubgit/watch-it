@@ -1,7 +1,7 @@
 const template = item => `
   <article itemscope itemtype="http://schema.org/MusicAlbum">
     <div class="metadata-container">
-      <a itemprop="url" href="${item.formattedUrl}">
+      <a itemprop="url" href="${item.data.formattedUrl}">
         ${item.album && item.artist ? `
           <div>
             <span itemprop="name">${item.album}</span>
@@ -14,7 +14,7 @@ const template = item => `
         ` : item.data.title}
       </a>
       
-      <div class="gs-url">${item.data.formattedUrl}</div>
+      <div class="url">${item.data.formattedUrl}</div>
       
       ${item.tracks ? `
           <ol>

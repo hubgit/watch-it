@@ -1,0 +1,145 @@
+body {
+  font-size: 1.2rem;
+  font-family: sans-serif;
+  margin: 0 auto;
+  max-width: 50em;
+  background: #eee;
+}
+
+nav {
+  font-size: 1.5rem;
+}
+
+nav a {
+  background: #ddd;
+  display: inline-block;
+  color: #444;
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  border-left: 1px solid #ccc;
+}
+
+nav a:first-of-type {
+  background-color: black;
+  color: white;
+  border-left: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+nav a[active] {
+  color: black;
+}
+
+nav small {
+  font-size: 60%;
+  color: #aaa;
+}
+
+form {
+  display: flex;
+  padding: 20px 0;
+}
+
+button, input {
+  font-family: inherit;
+  font-size: 100%;
+  border: 0;
+}
+
+input {
+  -webkit-appearance: none;
+  flex: 1;
+  font-size: 20px;
+  padding: 5px;
+}
+
+button {
+  font-size: 20px;
+  cursor: pointer;
+  border-left: 2px solid #eee;
+}
+
+article {
+  display: flex;
+  flex-flow: row wrap;
+  color: #555;
+  border: 1px solid #ddd;
+  box-shadow: 0 1px 1px #ddd;
+  padding: 0.5rem;
+  border-radius: 1px;
+  background: #fff;
+  margin: 0.5rem;
+}
+
+article ol {
+  margin-left: 0;
+  max-height: 100em;
+  overflow-y: auto;
+}
+
+article .image-container {
+  display: none;
+  max-width: 300px;
+}
+
+article .image-container img {
+  max-width: 100%;
+}
+
+article .metadata-container {
+  flex: 1;
+  min-width: 50%;
+}
+
+article [itemprop=url] {
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #444;
+}
+
+article [itemprop=url]:hover {
+  text-decoration: underline;
+}
+
+article [itemprop=description] {
+  color: gray;
+}
+
+article .spoiler {
+  color: #f6f6f6 !important;
+}
+
+article .spoiler:hover {
+  color: #777 !important;
+}
+
+article object[itemprop="embedUrl"] {
+  width: 100%;
+  min-height: 500px;
+}
+
+article [itemprop=byArtist] {
+  color: #777;
+}
+
+@media (min-width: 600px) {
+  article {
+    padding: 1rem;
+    margin: 0;
+  }
+
+  article .image-container {
+    display: block;
+  }
+
+  article .metadata-container {
+    padding-right: 10px;
+  }
+
+  article [itemprop=url] {
+    font-size: 1.5rem;
+  }
+}

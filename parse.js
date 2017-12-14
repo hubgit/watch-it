@@ -108,27 +108,27 @@ const parseDuration = duration => {
     }
 
     return minute + ':' + second
-  });
+  })
 }
 
 const embeddable = /(bandcamp\.com|soundcloud\.com)/
 
 const parseAudio = pagemap => {
   if (pagemap.audioobject) {
-    let url;
+    let url
 
     if (toString.call(pagemap.audioobject) === '[object Array]') {
       if (pagemap.audioobject.length) {
-        url = pagemap.audioobject[0].embedurl;
+        url = pagemap.audioobject[0].embedurl
       }
     } else {
-      url = pagemap.audioobject.embedurl;
+      url = pagemap.audioobject.embedurl
     }
 
     if (url && embeddable.test(url)) {
       return {
         data: url
-      };
+      }
     }
   }
 
@@ -137,26 +137,26 @@ const parseAudio = pagemap => {
       return {
         data: 'https://embed.spotify.com/?theme=dark&uri=' + pagemap.metatags.ogAudio,
         height: '80px'
-      };
+      }
     }
 
     if (embeddable.test(pagemap.metatags[0]['og:audio'])) {
       return {
         data: pagemap.metatags[0]['og:audio']
-      };
+      }
     }
   }
 
   if (pagemap.metatags && pagemap.metatags[0]['og:video'] && embeddable.test(pagemap.metatags[0]['og:video'])) {
     // bandcamp player
-    pagemap.metatags[0]['og:video'] = pagemap.metatags[0]['og:video'].replace(/tracklist=false/, 'tracklist=true');
+    pagemap.metatags[0]['og:video'] = pagemap.metatags[0]['og:video'].replace(/tracklist=false/, 'tracklist=true')
 
     return {
       data: pagemap.metatags[0]['og:video'],
       width: pagemap.metatags[0]['og:video:width'],
       height: pagemap.metatags[0]['og:video:height'],
       type: pagemap.metatags[0]['og:video:type']
-    };
+    }
   }
 
   if (pagemap.metatags && pagemap.metatags[0]['og:url']) {
@@ -164,13 +164,14 @@ const parseAudio = pagemap => {
       return {
         data: pagemap.metatags[0]['og:url'].replace(/open.spotify.com/, 'embed.spotify.com'),
         height: '80px'
-      };
+      }
     }
   }
 }
 
-const parse = function (item) {
-  console.log(item);
+export default item => {
+  console.log(item)
+
   const pagemap = item.pagemap
 
   return {

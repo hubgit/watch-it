@@ -2,10 +2,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Play It</title>
+<script type="module" src="main.js"></script>
 <link rel="stylesheet" href="style.css">
-<script src="search.js"></script>
-<script src="parse.js"></script>
-<script src="render.js"></script>
 
 <nav>
     <a href="./">Play It</a>
@@ -18,21 +16,3 @@
 </form>
 
 <div id="results"></div>
-
-<script>
-const query = new URLSearchParams(window.location.search)
-const q = query.get('q')
-
-if (q) {
-  document.querySelector('#input').q.value = q
-  const container = document.querySelector('#results')
-
-  const append = html => {
-    const element = document.createElement('div')
-    element.innerHTML = html
-    container.append(element)
-  }
-
-  search(q).then(items => items.map(parse).map(template).forEach(append))
-}
-</script>

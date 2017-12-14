@@ -1,4 +1,4 @@
-const template = item => `
+export default item => `
   <article itemscope itemtype="http://schema.org/MusicAlbum">
     <div class="metadata-container">
       <a itemprop="url" href="${item.data.formattedUrl}">

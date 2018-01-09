@@ -1,33 +1,11 @@
 export default item => `
-  <article itemscope itemtype="http://schema.org/MusicAlbum">
+  <article itemscope itemtype="http://schema.org/CreativeWork">
     <div class="metadata-container">
-      <a itemprop="url" href="${item.data.formattedUrl}">
-        ${item.album && item.artist ? `
-          <div>
-            <span itemprop="name">${item.album}</span>
-            ${item.date && `(<span itemprop="datePublished">${item.date}</span>)`}
-          </div>
-  
-          <div itemprop="byArtist" itemscope itemtype="http://schema.org/MusicGroup">
-            <span itemprop="name">${item.artist}</span>
-          </div>
-        ` : item.data.title}
+      <a itemprop="url" href="${item.url}">
+        ${item.data.title}
       </a>
       
-      <div class="url">${item.data.formattedUrl}</div>
-      
-      <!--
-      ${item.tracks ? `
-          <ol>
-              ${item.tracks.map(data => `
-                  <li itemprop="track" itemscope itemtype="http://schema.org/MusicRecording">
-                      <span itemprop="name">${data.name}</span>
-                      ${data.duration && `(<span itemprop="duration">${data.duration}</span>)`}
-                  </li>
-              `).join('')}
-          </ol>
-      ` : ''}
-      -->
+      <div class="url">${item.url}</div>
       
       ${item.description ? `
           <p itemprop="description">${item.description}</p>
@@ -39,15 +17,5 @@ export default item => `
           </div>
       ` : ''}
     </div>
-  
-    <!--
-    <div>
-       ${item.image ? `
-          <a class="image-container" href="${item.formattedUrl}">
-              <img itemprop="image" src="${item.image}">
-          </a>
-      ` : ''}
-    </div>
-    -->
   </article>
 `
